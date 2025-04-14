@@ -11,13 +11,25 @@ Um dos padrões mais utilizados nesse tipo de situação é o **Strategy**, que 
 
 ---
 
+### **O que é?**
+
+O Strategy é um padrão de projeto comportamental que permite definir uma família de algoritmos ou comportamentos de forma separada, encapsulando cada um deles em uma classe específica, chamada de estratégia. Essas estratégias podem ser trocadas dinamicamente durante a execução do programa, sem a necessidade de modificar o código do objeto principal.
+
+Em vez de usar várias estruturas condicionais para decidir qual comportamento executar, o padrão Strategy propõe que cada comportamento seja encapsulado e que o objeto principal delegue a responsabilidade para uma dessas estratégias.
+
+A ideia central é separar o "o que fazer" do "como fazer", promovendo um código mais organizado, reutilizável e de fácil manutenção.
+
+Esse padrão segue o princípio de composição sobre herança.
+
+---
+
 ### **Vantagens e Desvantagens**
 
 | **VANTAGENS**                                                      | **DESVANTAGENS**                                                   |
 |--------------------------------------------------------------------|-------------------------------------------------------------------|
 | Flexibilidade para mudar comportamentos em tempo de execução.  | Pode gerar muitos arquivos/classes, aumentando a complexidade.|
 | Evita duplicação de código e grandes blocos condicionais.      | O programador precisa entender bem como usar as estratégias corretas. |
-| Facilita testes, manutenção e adição de novas estratégias.| -                                                                 |
+| Facilita testes, manutenção e adição de novas estratégias.|                                                                   |
 
 ---
 
@@ -51,3 +63,40 @@ O Strategy é muito útil quando você tem várias formas diferentes de executar
 * Filtros em uma galeria de imagens, onde cada filtro é uma estratégia que aplica um efeito.
 
 ---
+
+### **Exemplo**
+
+```js
+// Estratégias (funções diferentes)
+const freteNormal = (peso) => peso * 5;
+const freteExpresso = (peso) => peso * 10;
+const freteGratis = (_) => 0;
+
+
+// Contexto que usa a estratégia
+class CalculadoraFrete {
+  constructor(estrategia) {
+    this.estrategia = estrategia;
+  }
+
+  // Define a estratégia em tempo de execução
+  setEstrategia(novaEstrategia) {
+    this.estrategia = novaEstrategia;
+  }
+
+  calcular(peso) {
+    return this.estrategia(peso);
+  }
+}
+
+// Usando a calculadora com diferentes estratégias
+const calculadora = new CalculadoraFrete(freteNormal);
+
+console.log("Frete Normal:", calculadora.calcular(10)); // 50
+calculadora.setEstrategia(freteExpresso);
+console.log("Frete Expresso:", calculadora.calcular(10)); // 100
+calculadora.setEstrategia(freteGratis);
+console.log("Frete Grátis:", calculadora.calcular(10)); // 0
+```
+
+Feito por: João Lucas, Duda S. e Milena
