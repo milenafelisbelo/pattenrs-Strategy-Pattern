@@ -29,7 +29,9 @@ Esse padrão segue o princípio de composição sobre herança.
 |--------------------------------------------------------------------|-------------------------------------------------------------------|
 | Flexibilidade para mudar comportamentos em tempo de execução.  | Pode gerar muitos arquivos/classes, aumentando a complexidade.|
 | Evita duplicação de código e grandes blocos condicionais.      | O programador precisa entender bem como usar as estratégias corretas. |
-| Facilita testes, manutenção e adição de novas estratégias.|                                                                   |
+| Facilita testes, manutenção e adição de novas estratégias.| Pode ser exagero em casos simples, tornando o código mais complicado do que precisa ser.|
+|Deixa o código mais organizado e legível(cada comportamento fica separado em sua própria classe, evitando confusão no código principal).|Estratégias diferentes podem acabar repetindo código. Se elas fazem coisas parecidas, pode rolar código duplicado.|
+
 
 ---
 
