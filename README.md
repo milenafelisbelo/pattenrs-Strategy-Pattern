@@ -65,6 +65,7 @@ O Strategy é muito útil quando você tem várias formas diferentes de executar
 ---
 
 ### **Exemplo**
+Calculo de Frete
 
 ```js
 // Estratégias (funções diferentes)
@@ -98,5 +99,9 @@ console.log("Frete Expresso:", calculadora.calcular(10)); // 100
 calculadora.setEstrategia(freteGratis);
 console.log("Frete Grátis:", calculadora.calcular(10)); // 0
 ```
+---
 
-Feito por: João Lucas, Duda S. e Milena
+##### Feito por: 
+* João Lucas Ribeiro Leite 
+* Maria E. Da Silva B.
+* Milena F. Da Silva
